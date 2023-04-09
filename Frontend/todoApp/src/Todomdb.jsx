@@ -11,7 +11,7 @@ function Todomdb() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/todomdb")
+      .get("http://0.0.0.0:8080/todomdb")
       .then((response) => setTodos(response.data))
       .catch((error) => console.error(error));
   }, [todos, newTodo, editingTodo]);
@@ -21,7 +21,7 @@ function Todomdb() {
     if (!newTodo) return toast.error("Please Add your Task");
     if (editingTodo) {
       axios
-        .put(`http://localhost:3000/todomdb/${editingTodo._id}`, { newTodo })
+        .put(`http://0.0.0.0:8080/todomdb/${editingTodo._id}`, { newTodo })
         .then((response) => {
           setTodos(
             todos.map((todo) => {
@@ -40,7 +40,7 @@ function Todomdb() {
         });
     } else {
       axios
-        .post("http://localhost:3000/todomdb", { newTodo })
+        .post("http://0.0.0.0:8080/todomdb", { newTodo })
         .then((response) => {
           const { id, newTodo } = response.data.todo;
           setTodos([...todos, { id, newTodo }]);
@@ -56,7 +56,7 @@ function Todomdb() {
 
   function handleDelete(id) {
     axios
-      .delete(`http://localhost:3000/todomdb/${id}`)
+      .delete(`http://0.0.0.0:8080/todomdb/${id}`)
       .then((response) => {
         setTodos(todos.filter((todo) => todo._id !== id));
         toast.success("Task deleted successfully");

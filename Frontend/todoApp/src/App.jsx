@@ -1,12 +1,12 @@
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
-import Todo from './todo';
+// import Todo from './todo';
 import Todomdb from './Todomdb';
 
 function App() {
   return (
    <>
-   <h4>Connected With Local Database</h4>
+   <h4>Connected With Local Database</h4>n
     <Todo/>
     <br/>
     <h4>Connected With Mongo Database</h4>
