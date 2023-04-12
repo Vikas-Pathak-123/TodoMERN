@@ -11,7 +11,7 @@ function Todo() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/todos")
+      .get("https://todoserver-7w9m.onrender.com/todos")
       .then((response) => setTodos(response.data))
       .catch((error) => console.error(error));
   }, []);
@@ -21,7 +21,7 @@ function Todo() {
     if (!newTodo) return toast.error("Please Add your Task");
     if (editingTodo) {
       axios
-        .put(`http://localhost:3000/todos/${editingTodo.id}`, { newTodo })
+        .put(`https://todoserver-7w9m.onrender.com/todos/${editingTodo.id}`, { newTodo })
         .then((response) => {
           setTodos(
             todos.map((todo) => {
@@ -41,7 +41,7 @@ function Todo() {
         });
     } else {
       axios
-        .post("http://localhost:3000/todos", { newTodo })
+        .post("https://todoserver-7w9m.onrender.com/todos", { newTodo })
         .then((response) => {
           const { id, newTodo } = response.data.todo;
           setTodos([...todos, { id, newTodo }]);
@@ -57,7 +57,7 @@ function Todo() {
 
   function handleDelete(id) {
     axios
-      .delete(`http://localhost:3000/todos/${id}`)
+      .delete(`https://todoserver-7w9m.onrender.com/todos/${id}`)
       .then((response) => {
         setTodos(todos.filter((todo) => todo.id !== id));
         toast.success("Task deleted successfully");
