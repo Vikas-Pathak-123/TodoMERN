@@ -7,7 +7,7 @@
     "env": {
       "NODE_ENV": "production"
     },
-    "src": "./src/index.mjs",
+    "src": "index.mjs",
     "command": "npm run build",
     "output": "dist"
   },

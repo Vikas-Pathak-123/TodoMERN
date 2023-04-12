@@ -5,11 +5,8 @@ import dotenv from 'dotenv';
 const router = express.Router();
 dotenv.config();
 
-const username = process.env.USERNAME;
-const password = process.env.PASSWORD; 
-
 mongoose.connect(
-  `mongodb+srv://123${username}vp79:${password}@cluster0.fugcxfg.mongodb.net/?retryWrites=true&w=majority`,
+  `mongodb+srv://123${process.env.USERNAME}vp79:${process.env.PASSWORD}@cluster0.fugcxfg.mongodb.net/?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
